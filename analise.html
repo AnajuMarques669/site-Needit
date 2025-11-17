@@ -3,78 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise de Produto - NeedIt</title>
+<title>Análise - NeedIt</title>
 <link rel="stylesheet" href="css/style.css">
-<style>
-/* Remove padding do body para ocupar a tela inteira */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* Header fixo */
-header {
-    background: #0d47a1;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-header .logo img {
-    height: 50px;
-}
-
-header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
-}
-
-header nav a:hover {
-    text-decoration: underline;
-}
-
-/* Iframe ocupa toda a tela abaixo do header */
-.ia-container {
-    position: absolute;
-    top: 70px; /* altura do header */
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-#iaFrame {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-</style>
 </head>
 <body>
 
 <header>
     <div class="logo">
-        <img src="images/logo.png" alt="NeedIt">
+        <img src="images/logoNeedIt-sem-fundo.png" alt="NeedIt">
     </div>
     <nav>
         <a href="index.html">Home</a>
+        <a href="analise.html" class="active">Análise</a>
         <a href="sobre.html">Sobre Nós</a>
-        <a href="cadastro.html">Cadastro</a>
-          <a href="pesquisa.html">Pesquisar</a>
+        <a href="pesquisa.html">Pesquisar</a>
     </nav>
 </header>
 
+<!-- Form flutuante no topo -->
+<form id="videoForm" class="video-form">
+    <input type="text" id="videoLink" placeholder="Cole o link do vídeo aqui">
+    <button type="submit">Analisar Produto</button>
+</form>
+
+<!-- Iframe central da IA -->
 <div class="ia-container">
-    <iframe id="iaFrame" src="https://video-shopper-ai.lovable.app/" allowfullscreen></iframe>
+    <iframe id="iaFrame" src="" title="Análise IA"></iframe>
 </div>
 
+<!-- Questionário flutuante na parte inferior -->
+<div class="questionario" id="questionario">
+    <h3>Reflexão sobre sua compra</h3>
+    <label><input type="radio" name="reflexao" value="Vou pensar melhor antes de comprar"> Vou pensar melhor antes de comprar</label>
+    <label><input type="radio" name="reflexao" value="Vou pesquisar mais antes de comprar"> Vou pesquisar mais antes de comprar</label>
+    <label><input type="radio" name="reflexao" value="Continuarei atento ao consumo consciente"> Continuarei atento ao consumo consciente</label>
+    <button id="submitQuestionario">Enviar Resposta</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 NeedIt - Todos os direitos reservados</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
